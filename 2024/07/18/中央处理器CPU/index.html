@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>中央处理器CPU | XYJ</title><meta name="author" content="XYJ"><meta name="copyright" content="XYJ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CPU 的功能和基本结构中央处理器（CPU）由运算器和控制器组成，控制器负责协调并控制计算机各部件执行程序的指令序列，运算器负责对数据的加工处理。CPU 的具体功能包括：  指令控制。完成取指令、分析指令和执行指令。 操作控制。产生完成一条指令所需要的操作信号，把各种操作信号送到相应部件，从而控制这些部件按指令的要求执行。 时间控制。严格控制各种操作信号的出现时间、持续时间和出现顺序。 数据加工。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中央处理器CPU">
+<meta property="og:url" content="https://troublingrainblue.github.io/2024/07/18/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8CPU/index.html">
+<meta property="og:site_name" content="XYJ">
+<meta property="og:description" content="CPU 的功能和基本结构中央处理器（CPU）由运算器和控制器组成，控制器负责协调并控制计算机各部件执行程序的指令序列，运算器负责对数据的加工处理。CPU 的具体功能包括：  指令控制。完成取指令、分析指令和执行指令。 操作控制。产生完成一条指令所需要的操作信号，把各种操作信号送到相应部件，从而控制这些部件按指令的要求执行。 时间控制。严格控制各种操作信号的出现时间、持续时间和出现顺序。 数据加工。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://troublingrainblue.github.io/img/51160511_p0_master1200.jpg">
+<meta property="article:published_time" content="2024-07-18T05:54:16.000Z">
+<meta property="article:modified_time" content="2024-07-18T09:33:06.470Z">
+<meta property="article:author" content="XYJ">
+<meta property="article:tag" content="计算机组成原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://troublingrainblue.github.io/img/51160511_p0_master1200.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://troublingrainblue.github.io/2024/07/18/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8CPU/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '中央处理器CPU',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-18 17:33:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/51160511_p0_master1200.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="XYJ"><span class="site-name">XYJ</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">中央处理器CPU</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-18T05:54:16.000Z" title="发表于 2024-07-18 13:54:16">2024-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-07-18T09:33:06.470Z" title="更新于 2024-07-18 17:33:06">2024-07-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="中央处理器CPU"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="CPU-的功能和基本结构"><a href="#CPU-的功能和基本结构" class="headerlink" title="CPU 的功能和基本结构"></a>CPU 的功能和基本结构</h1><p>中央处理器（CPU）由运算器和控制器组成，控制器负责协调并控制计算机各部件执行程序的指令序列，运算器负责对数据的加工处理。CPU 的具体功能包括：</p>
+<ul>
+<li><strong>指令控制</strong>。完成取指令、分析指令和执行指令。</li>
+<li><strong>操作控制</strong>。产生完成一条指令所需要的操作信号，把各种操作信号送到相应部件，从而控制这些部件按指令的要求执行。</li>
+<li><strong>时间控制</strong>。严格控制各种操作信号的出现时间、持续时间和出现顺序。</li>
+<li><strong>数据加工</strong>。对数据进行算术运算和逻辑运算。</li>
+<li><strong>中断处理</strong>。对运行过程中出现的异常情况和中断请求进行处理。</li>
+</ul>
+<p><strong>运算器</strong>主要由算数逻辑单元（ALU）、暂存寄存器、累加寄存器（ACC）、通用寄存器组（GPRs）、程序状态字寄存器（PSW）、移位寄存器（SR）、计数器（CT）等组成。功能是根据控制器送来的命令，对数据完成算数运算、逻辑运算和条件判断。</p>
+<p><strong>控制器</strong>主要有程序计数器（PC）、指令寄存器（IR）、指令译码器（ID）、存储器地址寄存器（MAR）、存储器数据寄存器（MDR）以及一些时序电路和信号发生器。主要功能是根据指令的操作码和条件信号，生成当前计算机各部件的控制信号，让整个硬件系统协调运行。</p>
+<p>通用寄存器组：用于存放操作数和各种地址信息，在指令中要指定寄存器的编号才能明确访问的是哪个寄存器。</p>
+<p>累加寄存器：用于暂时存放 ALU 的结果。</p>
+<p>移位寄存器：用于移位运算。</p>
+<p>暂存寄存器：暂时存放操作数，以便在下一个操作取出之后同时送入 ALU。</p>
+<p>程序状态字寄存器：用于存放状态信息，比如 OF、SF、ZF、CF 等。</p>
+<p>程序计数器：指出下一条指令的位置。</p>
+<p>指令寄存器：保存正在执行的指令。</p>
+<p>存储器地址寄存器：存放主存单元的地址。</p>
+<p>存储器数据寄存器：存放读出&#x2F;写入主存储器的数据。</p>
+<h1 id="指令执行过程"><a href="#指令执行过程" class="headerlink" title="指令执行过程"></a>指令执行过程</h1><h2 id="指令周期"><a href="#指令周期" class="headerlink" title="指令周期"></a>指令周期</h2><p>CPU 每取出一条指令并执行所需的全部时间被称为指令周期，不同指令的指令周期可能不同。指令周期通常用若干机器周期表示，每个指令周期的机器周期数不等。一个指令周期分成了几个不同的阶段，<strong>取指周期 → 间址周期 → 执行周期</strong>，当 CPU 采用中断方式实现主机和 I&#x2F;O 设备的信息交换是，CPU 在每条指令结束前，都会发出中断查询信号，如果有中断请求，CPU 会进入中断响应阶段，也称中断周期，这样一个完整的指令周期可包括，<strong>取指周期 → 间址周期 → 执行周期 → 中断周期</strong>。</p>
+<p>当 CPU 执行指令时，首先进入取指周期，从程序计数器 PC 指出的主存储单元中取出指令，送至指令寄存器 IR，同时程序计数器 PC+“1”作为下一条指令的地址。当遇到转移指令等改变执行顺序的指令时，程序计数器 PC 会在+“1”后重新计算并更新值，至此取指周期完成。然后判断是否有间接寻址，如果有，则会进入间址周期以获得有效的操作数，完成之后就进入了执行周期完成对操作数的操作，在执行周期结束之后，CPU 发出中断查询信号，如果有中断请求，CPU 会进入中断响应阶段，此时需要关中断、保存断点、修改 PC 值为中断服务程序的入口地址并转向中断服务程序。</p>
+<h2 id="指令周期的数据流"><a href="#指令周期的数据流" class="headerlink" title="指令周期的数据流"></a>指令周期的数据流</h2><h3 id="取指周期"><a href="#取指周期" class="headerlink" title="取指周期"></a>取指周期</h3><p>前面提到过，取指周期的任务是根据程序计数器 PC 的内容从主存中取出指令保存至指令寄存器 IR，同时程序计数器 PC 的值加 1.</p>
+<p>整个取指周期的数据流如下：</p>
+<ol>
+<li>将当前指令地址送至存储器地址寄存器 MAR，PC→MAR→ 地址总线 → 存储器。</li>
+<li>CU 控制单元通过控制总线向存储器发出读命令，CU→ 控制总线 → 存储器。</li>
+<li>将 MAR 所指出的数据通过数据总线送入存储器数据寄存器 MDR，存储器 → 数据总线 →MDR。</li>
+<li>将 MDR 得到的指令送到指令寄存器 IR 中，MDR→IR。</li>
+<li>CU 发出控制信号使 PC 内容加 1。</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2024/07/18/104918_d93caaf244-QQ_1721287469293.png" alt="取值周期数据流"></p>
+<h3 id="间址周期"><a href="#间址周期" class="headerlink" title="间址周期"></a>间址周期</h3><p>间址周期的任务是获得操作数的有效地址，以一次间址为例，将指令中的地址码送道 MAR 并运送至地址总线，此后 CU 向存储器发出读命令，以获取有效地址并存至 MDR。总体流向如下：</p>
+<ol>
+<li>Ad（IR）→MAR→ 地址总线 → 存储器。</li>
+<li>CU 发出读命令 → 控制总线 → 存储器。</li>
+<li>主存 → 数据总线 →MDR。</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2024/07/18/104918_d93caaf244-QQ_1721287469293.png" alt="间址周期数据流"></p>
+<h3 id="执行周期"><a href="#执行周期" class="headerlink" title="执行周期"></a>执行周期</h3><p>执行周期的任务是取操作数，并根据 IR 中的指令操作码通过 ALU 运算单元操作并产生执行结果，不同指令执行过程不同，没有统一的数据流向。</p>
+<h3 id="中断周期"><a href="#中断周期" class="headerlink" title="中断周期"></a>中断周期</h3><p>中断周期的任务是处理中断请求，需要保存断点需要使用到堆栈指针 SP。具体流向大致如下：</p>
+<ol>
+<li>CU 控制 SP 减 1，SP→MAR→ 地址总线 → 存储器。</li>
+<li>CU 发出写命令 → 控制总线 → 存储器。</li>
+<li>PC→MDR→ 数据总线 → 主存。</li>
+<li>CU（中断服务程序入口地址）→PC。</li>
+</ol>
+<p><img src="https://cdn.acwing.com/media/article/image/2024/07/18/104918_cf48095844-QQ_1721288333399.png" alt="中断周期数据流"></p>
+<h1 id="数据通路"><a href="#数据通路" class="headerlink" title="数据通路"></a>数据通路</h1><p>数据在指令执行过程所经过的路径，包括路径上的部件，称为<strong>数据通路</strong>。组成数据通路的元件主要分为组合逻辑元件和时序逻辑元件。</p>
+<h2 id="数据通路的组成"><a href="#数据通路的组成" class="headerlink" title="数据通路的组成"></a>数据通路的组成</h2><p><strong>组合逻辑元件（操作元件）</strong></p>
+<p>任何时刻产生的输出仅取决于当前的输入。组合电路中不包含存储信号的记忆单元，也不受时钟信号的控制，输入输出之间无反馈通路，信号是单向传输的。数据通路中常用的组合逻辑元件有译码器、算术逻辑单元、多路选择器、三态门等。</p>
+<p><strong>时序逻辑元件（状态元件）</strong></p>
+<p>任何时刻产生的输出不仅取决于当前的输入，还和该时刻前的输入有关，所以需要有存储信号的记忆单元。</p>
+<h2 id="数据通路的基本结构"><a href="#数据通路的基本结构" class="headerlink" title="数据通路的基本结构"></a>数据通路的基本结构</h2><h3 id="CPU-内部单总线结构"><a href="#CPU-内部单总线结构" class="headerlink" title="CPU 内部单总线结构"></a>CPU 内部单总线结构</h3><p>将 ALU 以及所有寄存器都连接在一条内部公共总线上，称为单总线结构的数据通路。这种结构比较简单，但数据传输存在较多冲突，性能较低。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2024/07/18/104918_bfa4636e44-QQ_1721289166010.png" alt="单总线结构"></p>
+<p>**tips:**内部总线是指同一部件，比如 CPU 内部连接的寄存器和运算部件之间的总线。系统总线是指同一台计算机系统的各部件比如 CPU、内存、通道等相互连接的总线。</p>
+<h3 id="CPU-内部多总线结构"><a href="#CPU-内部多总线结构" class="headerlink" title="CPU 内部多总线结构"></a>CPU 内部多总线结构</h3><p>CPU 内部有两条或者更多总线时，称为多总线结构。将所有寄存器的输入端和输出端都连接到多条公共通路上，相比单总线中一个时钟只允许传送一个数据，多总线方式可以同时在多条中线上传送不同的数据，提高效率。</p>
+<h3 id="专用数据通路"><a href="#专用数据通路" class="headerlink" title="专用数据通路"></a>专用数据通路</h3><p>根据指令执行过程中的数据流向专门建立电路避免共享使用总线，性能很好但是硬件量成本很高。</p>
+<h1 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h1><p>控制器是计算机系统的指挥中心，主要功能如下：</p>
+<ul>
+<li>从主存中取出一条指令，并指出下一条指令的位置。</li>
+<li>对指令进行姨妈或测试，产生相应的操作控制信号，以便启动规定的动作。</li>
+<li>指挥并控制 CPU、主存、输入输出设备之间的数据流向。</li>
+</ul>
+<p>根据控制器产生微操作控制信号的方式不同，控制器可以分为硬布线控制器和微程序控制器，这两种控制器中的 PC 和 IR 是一致的，不同的是确定和表示指令执行步骤的方法以及给出控制各部件运行所需信号的方案。</p>
+<h2 id="硬布线控制器"><a href="#硬布线控制器" class="headerlink" title="硬布线控制器"></a>硬布线控制器</h2><p>跳过</p>
+<h2 id="微程序控制器"><a href="#微程序控制器" class="headerlink" title="微程序控制器"></a>微程序控制器</h2><p>微程序的设计思想就是将每条机器指令编写成一个微程序，每个微程序包含了若干微指令，每条微指令对应了一个或者多个微操作，现在大部分计算机都采用微程序控制技术。</p>
+<p><strong>微命令和微操作</strong></p>
+<p>在微程序控制的计算机中，控制部件向执行部件发出的各种控制信号称为微命令，它是构成控制序列的最小单位。执行部件接收到微命令之后进行的操作叫做微操作。微命令有相容性和互斥性之分。相容性的微命令是指可以同时出现、共同完成某一些微操作的微命令，互斥性则不能。</p>
+<p><strong>微指令和微周期</strong></p>
+<p>微指令是若干微命令的集合，一条微指令由操作控制字段和顺序控制字段组成。微周期是指从控制器中取出一条微指令并执行所需的全部时间，通常为一个时钟周期。</p>
+<p><strong>程序和微程序</strong></p>
+<p>程序和微程序是两个完全不同的概念，程序是指令的有序集合，用于完成特定的功能，微程序是微指令的有序集合，用于描述机器指令。一条指令的功能由一段微程序来实现。</p>
+<h3 id="微指令控制器的工作过程"><a href="#微指令控制器的工作过程" class="headerlink" title="微指令控制器的工作过程"></a>微指令控制器的工作过程</h3><p>微程序控制器中有以下这些部件：</p>
+<ul>
+<li>**控制存储器 CM:**用于存放各指令对应的微程序，控制存储器可用 ROM 构成。</li>
+<li>**CMAR:**别名 μPC，微地址寄存器，接收微地址形成部件送来的微地址，为 CM 中读取微指令做准备。</li>
+<li><strong>CMDR：</strong>别名 μIR，用于存放微指令。</li>
+<li>**微地址形成部件:**用于产生初始和后续微地址，保证微指令的连续执行。</li>
+</ul>
+<p><img src="https://cdn.acwing.com/media/article/image/2024/07/18/104918_fa14ce0544-QQ_1721293548558.png" alt="微指令控制器的工作过程"></p>
+<h3 id="微指令的设计"><a href="#微指令的设计" class="headerlink" title="微指令的设计"></a>微指令的设计</h3><p><strong>编码方式:</strong></p>
+<ul>
+<li>直接编码方式：直接编码无需进行译码，微指令的操作字段中每一位都代表一个微命令。选用或不用某个微命令，只要将对应位设置为 1 或者 0 即可，这种编码方式简单直观、执行速度快，但是微指令字长过长。</li>
+<li>字段直接编码：</li>
+<li>字段间接编码：</li>
+</ul>
+<h1 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://TroublingRainBlue.github.io">XYJ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://troublingrainblue.github.io/2024/07/18/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8CPU/">https://troublingrainblue.github.io/2024/07/18/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8CPU/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://TroublingRainBlue.github.io" target="_blank">XYJ</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></div><div class="post_share"><div class="social-share" data-image="/img/51160511_p0_master1200.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/07/17/HDU-7276-City-Upgrading/" title="HDU-7276 City Upgrading"><img class="cover" src="https://cdn.acwing.com/media/article/image/2024/07/17/104918_a0d6eeba44-1723d0ea6ae514e93668d038e4083407.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">HDU-7276 City Upgrading</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/07/15/%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8/" title="高速缓冲存储器"><img class="cover" src="https://cdn.acwing.com/media/article/image/2024/07/15/104918_5b0e2ffe42-69d9a6a677d122164afc072567baa864.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-15</div><div class="title">高速缓冲存储器</div></div></a></div><div><a href="/2024/07/16/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/" title="指令系统"><img class="cover" src="https://cdn.acwing.com/media/article/image/2024/07/16/104918_d12173cb43-img_1694387840_1720424328338.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-16</div><div class="title">指令系统</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">XYJ</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/TroublingRainBlue"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/TroublingRainBlue" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">加油</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CPU-%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">CPU 的功能和基本结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">指令执行过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F"><span class="toc-number">2.1.</span> <span class="toc-text">指令周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%91%A8%E6%9C%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81"><span class="toc-number">2.2.</span> <span class="toc-text">指令周期的数据流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%96%E6%8C%87%E5%91%A8%E6%9C%9F"><span class="toc-number">2.2.1.</span> <span class="toc-text">取指周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E5%9D%80%E5%91%A8%E6%9C%9F"><span class="toc-number">2.2.2.</span> <span class="toc-text">间址周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%91%A8%E6%9C%9F"><span class="toc-number">2.2.3.</span> <span class="toc-text">执行周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E5%91%A8%E6%9C%9F"><span class="toc-number">2.2.4.</span> <span class="toc-text">中断周期</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF"><span class="toc-number">3.</span> <span class="toc-text">数据通路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">3.1.</span> <span class="toc-text">数据通路的组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">数据通路的基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-%E5%86%85%E9%83%A8%E5%8D%95%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-number">3.2.1.</span> <span class="toc-text">CPU 内部单总线结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-%E5%86%85%E9%83%A8%E5%A4%9A%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-number">3.2.2.</span> <span class="toc-text">CPU 内部多总线结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%93%E7%94%A8%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF"><span class="toc-number">3.2.3.</span> <span class="toc-text">专用数据通路</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E5%B8%83%E7%BA%BF%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">4.1.</span> <span class="toc-text">硬布线控制器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">4.2.</span> <span class="toc-text">微程序控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-number">4.2.1.</span> <span class="toc-text">微指令控制器的工作过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E6%8C%87%E4%BB%A4%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.2.2.</span> <span class="toc-text">微指令的设计</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%85%E7%BB%AD"><span class="toc-number">5.</span> <span class="toc-text">待续</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/07/18/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8CPU/" title="中央处理器CPU"><img src="/img/51160511_p0_master1200.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中央处理器CPU"/></a><div class="content"><a class="title" href="/2024/07/18/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8CPU/" title="中央处理器CPU">中央处理器CPU</a><time datetime="2024-07-18T05:54:16.000Z" title="发表于 2024-07-18 13:54:16">2024-07-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/17/HDU-7276-City-Upgrading/" title="HDU-7276 City Upgrading"><img src="https://cdn.acwing.com/media/article/image/2024/07/17/104918_a0d6eeba44-1723d0ea6ae514e93668d038e4083407.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HDU-7276 City Upgrading"/></a><div class="content"><a class="title" href="/2024/07/17/HDU-7276-City-Upgrading/" title="HDU-7276 City Upgrading">HDU-7276 City Upgrading</a><time datetime="2024-07-17T06:04:18.000Z" title="发表于 2024-07-17 14:04:18">2024-07-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/16/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/" title="指令系统"><img src="https://cdn.acwing.com/media/article/image/2024/07/16/104918_d12173cb43-img_1694387840_1720424328338.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="指令系统"/></a><div class="content"><a class="title" href="/2024/07/16/%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F/" title="指令系统">指令系统</a><time datetime="2024-07-16T05:44:43.000Z" title="发表于 2024-07-16 13:44:43">2024-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/15/%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8/" title="高速缓冲存储器"><img src="https://cdn.acwing.com/media/article/image/2024/07/15/104918_5b0e2ffe42-69d9a6a677d122164afc072567baa864.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="高速缓冲存储器"/></a><div class="content"><a class="title" href="/2024/07/15/%E9%AB%98%E9%80%9F%E7%BC%93%E5%86%B2%E5%AD%98%E5%82%A8%E5%99%A8/" title="高速缓冲存储器">高速缓冲存储器</a><time datetime="2024-07-15T06:19:23.000Z" title="发表于 2024-07-15 14:19:23">2024-07-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络"><img src="https://cdn.acwing.com/media/article/image/2024/07/15/104918_5a7a826942-9bb38b44a28c5e6395ac14abdc976d9e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络"/></a><div class="content"><a class="title" href="/2024/07/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络">计算机网络</a><time datetime="2024-07-15T06:00:14.000Z" title="发表于 2024-07-15 14:00:14">2024-07-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By XYJ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
